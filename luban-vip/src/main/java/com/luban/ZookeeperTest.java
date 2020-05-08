@@ -24,22 +24,24 @@ public class ZookeeperTest {
         // 创建一个节点，并设置内容，设置ACL(该节点的权限设置)， 节点类型（7种：持久节点、临时节点、持久顺序节点、临时顺序节点、容器节点、TTL节点、TTL顺序节点）
         // 容器节点
         // 创建成功则返回该节点的路径，注意顺序节点
-//        String a = zooKeeper.create("/luban123", "123".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT_SEQUENTIAL);
+        String a = zooKeeper.create("/luban123", "123".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        //create success:/luban123
+        System.out.println("create success:"+a);
 
-//        System.in.read();
 
-//        // 获取某个节点的内容，并设置一个监听器
-//        // stat用来承载节点的其他信息
-//        Stat stat = new Stat();
-//
-//        byte[] result = zooKeeper.getData("/luban123", new Watcher() {
-//            @Override
-//            public void process(WatchedEvent event) {
-//
-//                System.out.println(event.getType());
-//            }
-//        }, stat);
+        // 获取某个节点的内容，并设置一个监听器
+        // stat用来承载节点的其他信息
+        Stat stat = new Stat();
 
+        byte[] result = zooKeeper.getData("/luban123", new Watcher() {
+            @Override
+            public void process(WatchedEvent event) {
+
+                System.out.println(event.getType());
+            }
+        }, stat);
+
+        System.in.read();
 
 
         // 修改节点的内容，这里有乐观锁,version表示本次修改, -1表示不检查版本强制更新

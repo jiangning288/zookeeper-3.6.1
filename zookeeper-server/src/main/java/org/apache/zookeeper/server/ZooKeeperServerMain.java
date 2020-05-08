@@ -142,13 +142,13 @@ public class ZooKeeperServerMain {
             // 日志目录、数据目录
             txnLog = new FileTxnSnapLog(config.dataLogDir, config.dataDir);
 
-            //
+            //JVM监视器
             JvmPauseMonitor jvmPauseMonitor = null;
             if (config.jvmPauseMonitorToRun) {
                 jvmPauseMonitor = new JvmPauseMonitor(config);
             }
 
-            //
+            //启动ZK
             final ZooKeeperServer zkServer = new ZooKeeperServer(jvmPauseMonitor, txnLog, config.tickTime, config.minSessionTimeout, config.maxSessionTimeout, config.listenBacklog, null, config.initialConfig);
             txnLog.setServerStats(zkServer.serverStats());
 
@@ -158,6 +158,7 @@ public class ZooKeeperServerMain {
             zkServer.registerServerShutdownHandler(new ZooKeeperServerShutdownHandler(shutdownLatch));
 
             // Start Admin server
+            //管理server的一个程序
             adminServer = AdminServerFactory.createAdminServer();
             adminServer.setZooKeeperServer(zkServer);
             adminServer.start();
