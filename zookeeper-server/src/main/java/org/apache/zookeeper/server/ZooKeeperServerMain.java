@@ -148,7 +148,7 @@ public class ZooKeeperServerMain {
                 jvmPauseMonitor = new JvmPauseMonitor(config);
             }
 
-            //启动ZK
+            //创建ZK
             final ZooKeeperServer zkServer = new ZooKeeperServer(jvmPauseMonitor, txnLog, config.tickTime, config.minSessionTimeout, config.maxSessionTimeout, config.listenBacklog, null, config.initialConfig);
             txnLog.setServerStats(zkServer.serverStats());
 
