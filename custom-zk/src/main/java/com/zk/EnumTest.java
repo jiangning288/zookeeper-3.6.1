@@ -1,4 +1,4 @@
-package com.luban;
+package com.zk;
 
 public enum  EnumTest {
 

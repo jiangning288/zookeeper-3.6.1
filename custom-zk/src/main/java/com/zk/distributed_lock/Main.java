@@ -1,7 +1,10 @@
-package com.luban.distributed_lock;
+package com.zk.distributed_lock;
 
 import java.util.concurrent.locks.Lock;
 
+/**
+ * 模拟分布式锁
+ * */
 public class Main {
 
 

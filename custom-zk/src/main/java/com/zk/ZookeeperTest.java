@@ -1,12 +1,9 @@
-package com.luban;
+package com.zk;
 
 import org.apache.zookeeper.*;
-import org.apache.zookeeper.admin.ZooKeeperAdmin;
-import org.apache.zookeeper.data.ACL;
 import org.apache.zookeeper.data.Stat;
 
 import java.io.IOException;
-import java.util.List;
 
 public class ZookeeperTest {
 
@@ -46,15 +43,15 @@ public class ZookeeperTest {
 
         // 修改节点的内容，这里有乐观锁,version表示本次修改, -1表示不检查版本强制更新
         // stat表示修改数据成功之后节点的状态
-//        Stat stat = zooKeeper.setData("/luban", "xxx".getBytes(), -1);
+//        Stat stat = zooKeeper.setData("/zk", "xxx".getBytes(), -1);
 
         // 删除
-//        zooKeeper.delete("/luban", -1);
+//        zooKeeper.delete("/zk", -1);
 
 
         // 判断某节点是否存在，如果存在则返回该节点的状态（并没有节点的内容）
         // 同时设置一个监听器
-//        zooKeeper.exists("/luban", new Watcher() {
+//        zooKeeper.exists("/zk", new Watcher() {
 //            @Override
 //            public void process(WatchedEvent event) {
 //                System.out.println(event);
@@ -64,7 +61,7 @@ public class ZookeeperTest {
 
 
         // 获取孩子节点
-//        List<String> children = zooKeeper.getChildren("/luban", new Watcher() {
+//        List<String> children = zooKeeper.getChildren("/zk", new Watcher() {
 //            @Override
 //            public void process(WatchedEvent event) {
 //
@@ -108,7 +105,7 @@ public class ZookeeperTest {
 //        }, ctx);
 
 
-//        zooKeeper.addWatch("/luban", new Watcher() {
+//        zooKeeper.addWatch("/zk", new Watcher() {
 //            @Override
 //            public void process(WatchedEvent event){
 //                System.out.println(event);

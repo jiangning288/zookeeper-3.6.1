@@ -1,4 +1,4 @@
-package com.luban.distributed_config;
+package com.zk.distributed_config;
 
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
